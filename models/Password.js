@@ -5,15 +5,15 @@ const PasswordSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    description: {
-        type: String,
-        required: true,
-    },
+    // description: {
+    //     type: String,
+    //     required: true,
+    // },
     password: {
         type: String,
         required: true
     }
 })
 
-const Password = mongoose.model("User", PasswordSchema)
+const Password = mongoose.model("Password", PasswordSchema)
 module.exports = Password;
