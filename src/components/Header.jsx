@@ -6,6 +6,7 @@ import { jwtDecode } from "jwt-decode";
 import { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
 import toast from "react-hot-toast";
+import Switch from "./Switch";
 
 
 function Header() {
@@ -42,13 +43,13 @@ function Header() {
         console.log(res);
     }
     return (
-        <div className="flex sticky top-0 items-center justify-between px-6 py-5">
+        <div className="flex dark:bg-zinc-900 sticky top-0 items-center justify-between px-6 py-5">
             <div>
                 <Logo />
             </div>
             <div className="flex items-center space-x-6 px-4">
                 <div>
-                    <SunIcon className="w-8 h-8 hover:animate-spin cursor-pointer duration-200" />
+                    <Switch />
                 </div>
                 {
                     user ? (
