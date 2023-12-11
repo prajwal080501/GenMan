@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Modal from "./Modal";
 import ClipLoader from "react-spinners/ClipLoader";
 import toast from "react-hot-toast";
-function SavePassword({ isOpen, setIsOpen, password }) {
+import { UserContext, UserProvider } from "../context/UserContext";
+function SavePassword({ isOpen, setIsOpen, password , passwords, setPasswords}) {
+    const { user, token } = useContext(UserContext);
     const [loading, setLoading] = useState(false);
     const [title, setTitle] = useState("");
+    console.log(token);
     async function savePassword(e) {
         // save password to databasee.
         e.preventDefault();
@@ -12,17 +15,26 @@ function SavePassword({ isOpen, setIsOpen, password }) {
         const res = await fetch("http://localhost:8000/api/password", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "auth-token": token
             },
             body: JSON.stringify({
+                user_id: user._id,
                 title: title,
                 password: password
             })
         })
-
         const data = await res.json();
 
         toast.success(data.message);
+
+       const newPassword = {
+            user_id: user._id,
+            title: title,
+            password: password
+        }
+        setPasswords((prev) => [...prev, newPassword]);
+
 
         setLoading(false);
         setIsOpen((prev) => !prev);
@@ -37,7 +49,7 @@ function SavePassword({ isOpen, setIsOpen, password }) {
                             e.preventDefault();
                             setTitle(e.target.value);
                         }
-                    
+
                     } name="title" type="text" placeholder="Title" className="p-1 w-1/2 ring bg-gray-200 rounded" />
                 </div>
                 <div className="flex flex-col space-y-3">

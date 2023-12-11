@@ -1,14 +1,16 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import Options from "./Options";
 import SavePassword from "./SavePassword";
 import toast from "react-hot-toast";
 
-function Generate() {
+function Generate({passwords, setPasswords}) {
     const [password, setPassword] = useState("");
     const [length, setLength] = useState(8);
     const [numbers, setNumbers] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [characters, setCharacters] = useState(false);
+
+    const passwordRef = useRef(null);
     const generatePassword = useCallback(() => {
         let pass = "";
         let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
@@ -25,18 +27,19 @@ function Generate() {
 
     }, [length, characters, numbers, setPassword])
 
-    function copyPassword() {
+    const copyPassword = useCallback(() => {
+        window.navigator.clipboard.writeText(passwordRef.current.value);
         toast.success("Password copied to clipboard");
-    }
+    }, [password]);
 
     useEffect(() => {
         generatePassword();
     }, [length, numbers, characters, generatePassword])
     return (
         <div className="w-[80%] mt-10  rounded-lg bg-white">
-            <SavePassword password={password} isOpen={isOpen} setIsOpen={setIsOpen} />
+            <SavePassword passwords={passwords} setPasswords={setPasswords} password={password} isOpen={isOpen} setIsOpen={setIsOpen} />
             <div className="w-1/2 flex mx-auto mt-6">
-                <input value={password} onChange={
+                <input ref={passwordRef} value={password} onChange={
                     (e) => {
                         e.preventDefault();
                         setPassword(e.target.value);
