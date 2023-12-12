@@ -15,7 +15,7 @@ function App() {
   }, [])
   console.log(user?.name);
   return (
-    <div className="h-screen">
+    <div className="dark:bg-zinc-950 w-full min-h-screen">
       <Toaster />
       <Header />
       <Outlet />

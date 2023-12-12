@@ -43,18 +43,23 @@ function SavePassword({ isOpen, setIsOpen, password , passwords, setPasswords}) 
         <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
             <form onSubmit={savePassword} className="flex flex-col space-y-5">
                 <div className="flex flex-col space-y-3">
-                    <label className="font-bold text-lg" htmlFor="title">Title</label>
+                    <label className="label" htmlFor="title">Title</label>
                     <input value={title} onChange={
                         (e) => {
                             e.preventDefault();
                             setTitle(e.target.value);
                         }
 
-                    } name="title" type="text" placeholder="Title" className="p-1 w-1/2 ring bg-gray-200 rounded" />
+                    } name="title" type="text" placeholder="Title" className="input" />
                 </div>
                 <div className="flex flex-col space-y-3">
-                    <label className="font-bold text-lg" htmlFor="password">Password</label>
-                    <input name="password" type="text" value={password} className="p-1 w-1/2 ring bg-gray-200 rounded" />
+                    <label className="label" htmlFor="password">Password</label>
+                    <input name="password" type="text" value={password} className="input" />
+                </div>
+                <div>
+                    <p className="w-1/2 bg-gray-200 dark:bg-zinc-950  dark:text-white p-2 rounded-lg font-medium">
+                        By saving this password, you agree to our <a className="text-blue-500" href="https://google.com">Terms and Conditions</a>
+                    </p>
                 </div>
                 <div>
                     <button type="submit" className="bg-green-600 hover:bg-green-700 px-3 py-1 rounded-lg text-white font-medium text-lg hover:scale-105 active:scale-95 duration-200 ease-linear">
@@ -65,11 +70,7 @@ function SavePassword({ isOpen, setIsOpen, password , passwords, setPasswords}) 
                         }
                     </button>
                 </div>
-                <div>
-                    <p className="w-1/2 bg-gray-200 p-2 rounded-lg font-medium">
-                        By saving this password, you agree to our <a className="text-blue-500" href="https://google.com">Terms and Conditions</a>
-                    </p>
-                </div>
+               
             </form>
         </Modal>
     )

@@ -34,17 +34,17 @@ function PasswordCard({ password, passwords, setPasswords  }) {
     }
 
     return (
-        <div className="w-full mt-5 bg-gray-100 p-3 rounded-lg flex items-center justify-between">
+        <div className="w-full mt-5 bg-gray-100 dark:bg-zinc-900 p-3 rounded-lg flex items-center justify-between">
             <div className="flex space-x-4 items-center">
                 <LockClosedIcon className="h-5 w-5 bg-blue-500 text-white p-1 rounded-full" />
-                <p className="font-bold text-lg">{password.title}</p>
+                <p className="font-bold text-lg dark:text-white">{password.title}</p>
             </div>
             <div className="flex items-center space-x-4">
                 <input type={
                     showPassword ? "text" : "password"
 
-                } readOnly className="font-normal text-lg p-2 rounded-lg" value={password.password} />
-                <button onClick={handleShowPassword} ><EyeIcon className="h-5 w-5" /></button>
+                } readOnly className="input" value={password.password} />
+                <button onClick={handleShowPassword} ><EyeIcon className="h-5 w-5 dark:text-white" /></button>
 
                 <button className="bg-green-500 p-2 rounded-lg hover:scale-105 duration-200 ease-linear tezt-white cursor-pointer hover:bg-green-600 text-white">
                     <PencilIcon className="h-5 w-5" />

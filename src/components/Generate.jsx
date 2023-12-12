@@ -36,18 +36,18 @@ function Generate({passwords, setPasswords}) {
         generatePassword();
     }, [length, numbers, characters, generatePassword])
     return (
-        <div className="w-[80%] mt-10  rounded-lg bg-white">
+        <div className="w-fit mt-10  rounded-lg bg-white dark:bg-zinc-800">
             <SavePassword passwords={passwords} setPasswords={setPasswords} password={password} isOpen={isOpen} setIsOpen={setIsOpen} />
-            <div className="w-1/2 flex mx-auto mt-6">
+            <div className="w-[80%] flex mx-auto mt-6">
                 <input ref={passwordRef} value={password} onChange={
                     (e) => {
                         e.preventDefault();
                         setPassword(e.target.value);
                     }
-                } readOnly className="bg-gray-100  w-full p-3 rounded-l-lg" type="text" placeholder="Password" />
+                } readOnly className="input" type="text" placeholder="Password" />
                 <div className="flex space-x-4">
-                    <button onClick={copyPassword} className="btn-primary">Copy</button>
-                    <button onClick={() => setIsOpen(true)} className="bg-gray-800 text-white px-3 py-1 font-medium text-lg rounded-md hover:scale-105 duration-200">Save</button>
+                    <button onClick={copyPassword} className="btn-primary dark:bg-blue-600">Copy</button>
+                    <button onClick={() => setIsOpen(true)} className="bg-gray-800 dark:bg-fuchsia-600 text-white px-3 py-1 font-medium text-lg rounded-md hover:scale-105 duration-200">Save</button>
                 </div>
 
             </div>

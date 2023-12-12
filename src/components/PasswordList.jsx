@@ -24,9 +24,9 @@ function PasswordList({ passwords, setPasswords }) {
     }, [user])
 
     return (
-        <div className="w-full h-fit flex flex-col items-center justify-center mt-10 mb-10 rounded-lg bg-white  p-5">
+        <div className="w-full h-fit flex flex-col items-center justify-center mt-10 rounded-lg bg-white dark:bg-zinc-800 p-5">
             <div className="w-full py-5 px-3 flex items-start">
-                <p className="text-3xl font-extrabold text-black text-left">
+                <p className="text-3xl font-extrabold text-black dark:text-white text-left">
                     Your saved passwords
                 </p>
             </div>

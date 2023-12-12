@@ -1,7 +1,7 @@
 
 function Features() {
     return (
-        <div className="max-w-7xl mx-auto rounded-lg p-3 mt-10 bg-gray-100">
+        <div className="max-w-7xl mb-5  mx-auto rounded-lg p-3 mt-10 bg-gray-100">
             <div className="  flex items-center justify-center">
                 <p className="text-4xl font-extrabold">Features</p>
             </div>

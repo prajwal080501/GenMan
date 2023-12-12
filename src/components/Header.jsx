@@ -43,7 +43,7 @@ function Header() {
         console.log(res);
     }
     return (
-        <div className="flex dark:bg-zinc-900 sticky top-0 items-center justify-between px-6 py-5">
+        <div className="flex z-10  dark:bg-zinc-900 transition-all duration-200 sticky top-0 items-center justify-between px-6 py-5">
             <div>
                 <Logo />
             </div>
@@ -65,7 +65,8 @@ function Header() {
                         </>
                     ) : (
                         <div>
-                            <GoogleLogin useOneTap shape="circle" onSuccess={onSuceess} onError={onError} />
+                            <GoogleLogin
+                             useOneTap shape="circle" onSuccess={onSuceess} onError={onError} />
                         </div>
                     )
                 }
