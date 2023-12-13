@@ -3,7 +3,7 @@ import Logo from "./Logo";
 function Footer() {
   const dt = new Date();
   return (
-    <footer className="absolute bottom-0 mt-10 dark:bg-zinc-900 w-full text-gray-600">
+    <footer className="dark:bg-zinc-900 w-full h-fit text-gray-600">
       <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
         <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
           <span className="ml-3 text-xl">

@@ -3,9 +3,14 @@
 @tailwind components;
 @tailwind utilities;
 
-html,body,:root {
+html,
+body,
+:root {
   font-family: 'Roboto', sans-serif;
-  height: 100%;
+}
+
+body {
+  height:max-content;
 }
 
 
@@ -15,9 +20,11 @@ html,body,:root {
   .btn-primary {
     @apply bg-blue-500 text-white font-bold py-3 px-4 rounded-r-lg hover:scale-105 duration-300 ease-linear cursor-pointer hover:bg-blue-600;
   }
-  .label{
+
+  .label {
     @apply font-normal text-lg dark:text-gray-400 duration-200 transition-all;
   }
+
   .input {
     @apply bg-gray-100 dark:bg-zinc-950/80 dark:text-white p-4 w-full rounded-l-lg outline-none focus:ring-1 duration-200 focus:ring-blue-500
   }

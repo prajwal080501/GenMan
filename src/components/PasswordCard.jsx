@@ -1,9 +1,9 @@
 import { TrashIcon, PencilIcon, EyeIcon, LockClosedIcon } from "@heroicons/react/24/solid";
 import { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
-function PasswordCard({ password, passwords, setPasswords  }) {
+function PasswordCard({ password, passwords, setPasswords }) {
     const [showPassword, setShowPassword] = useState(false);
-    const {token} = useContext(UserContext);
+    const { token } = useContext(UserContext);
     function handleShowPassword() {
         setShowPassword(!showPassword);
 
@@ -28,7 +28,7 @@ function PasswordCard({ password, passwords, setPasswords  }) {
 
         setPasswords((prev) => prev.filter((password) => password._id !== id));
 
-        toast.success(data.message);
+        toast.success("Password deleted successfully");
 
         setLoading(false);
     }
@@ -37,7 +37,18 @@ function PasswordCard({ password, passwords, setPasswords  }) {
         <div className="w-full mt-5 bg-gray-100 dark:bg-zinc-900 p-3 rounded-lg flex items-center justify-between">
             <div className="flex space-x-4 items-center">
                 <LockClosedIcon className="h-5 w-5 bg-blue-500 text-white p-1 rounded-full" />
-                <p className="font-bold text-lg dark:text-white">{password.title}</p>
+                <div className="flex flex-col space-y-2 items-start">
+                    <p className="font-bold text-lg dark:text-white">{password.title}</p>
+                    <p className="text-gray-400">
+                        Date created: 
+                        <span className="font-bold">
+                        {
+                            new Date
+                                (password.createdAt).toLocaleDateString()
+                        }
+                        </span>
+                    </p>
+                </div>
             </div>
             <div className="flex items-center space-x-4">
                 <input type={

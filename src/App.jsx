@@ -1,26 +1,38 @@
 import Footer from "./components/Footer"
 import Header from "./components/Header"
 import { Outlet } from "react-router-dom"
-import SavePassword from "./components/SavePassword"
 import { useContext, useEffect, useState } from "react"
 import { Toaster } from "react-hot-toast"
 import { UserContext } from "./context/UserContext"
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import Home from "./pages/Home"
+import Dashboard from "./pages/Dashboard"
 function App() {
-  const { getUser, user } = useContext(UserContext);
+  const { getUser } = useContext(UserContext);
 
 
   useEffect(() => {
     getUser();
   }, [])
-  console.log(user?.name);
   return (
-    <div className="dark:bg-zinc-950 w-full min-h-screen">
+    // <div className="dark:bg-zinc-950 w-full h-full">
+    //   <Toaster />
+    //   <Header />
+    //   <Outlet />
+    //   <Footer />
+    // </div>
+    <div className="bg-zinc-950">
+ <Router>
       <Toaster />
       <Header />
-      <Outlet />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
       <Footer />
+    </Router>
     </div>
+   
   )
 }
 

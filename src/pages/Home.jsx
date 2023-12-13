@@ -3,7 +3,7 @@ import Hero from "../components/Hero";
 
 function Home() {
     return (
-        <div className="w-full h-auto overflow-auto">
+        <div className="w-full h-screen">
             <Hero />
             {/* <Features /> */}
         </div>

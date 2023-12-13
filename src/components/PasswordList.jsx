@@ -1,11 +1,14 @@
-import { useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/UserContext";
 import NoPasswords from "./NoPasswords";
 import PasswordCard from "./PasswordCard";
+import ClipLoader from "react-spinners/ClipLoader";
 
 function PasswordList({ passwords, setPasswords }) {
     const { user, token } = useContext(UserContext);
-    async function getPasswordByUserId() {
+    const [loading, setLoading] = useState(false);
+    const getPasswordByUserId = useCallback(async () => {
+        setLoading(true);
         const res = await fetch(`http://localhost:8000/api/password/${user?._id}`, {
             method: 'GET',
             headers: {
@@ -16,7 +19,8 @@ function PasswordList({ passwords, setPasswords }) {
         const data = await res.json();
         setPasswords(data.passwords);
         console.log(passwords);
-    }
+        setLoading(false);
+    }, [user, token, setPasswords])
 
     useEffect(() => {
         getPasswordByUserId();
@@ -31,18 +35,15 @@ function PasswordList({ passwords, setPasswords }) {
                 </p>
             </div>
             {
-
-                user && passwords ? (
-                    passwords.map((password) => (
-                        <div className="flex flex-col space-y-8 items-center w-full">
-                            <PasswordCard passwords={passwords} setPasswords={setPasswords} key={password._id} password={password} />
-                        </div>
-                    ))
-                ) : (
-                    <>
-                        <NoPasswords />
-                    </>
-                )
+                loading ? <div className="flex items-center justify-center">
+                    <ClipLoader color="white" size={70} />
+                </div> : passwords?.length === 0 ? <NoPasswords /> : <div className="w-full flex flex-wrap justify-center items-center">
+                    {
+                        passwords?.map((password) => (
+                            <PasswordCard key={password._id} password={password} setPasswords={setPasswords}/>
+                        ))
+                    }
+                </div>
             }
         </div>
     )

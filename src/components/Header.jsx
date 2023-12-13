@@ -7,7 +7,7 @@ import { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
 import toast from "react-hot-toast";
 import Switch from "./Switch";
-
+import {motion} from 'framer-motion'
 
 function Header() {
     const { login, logout, user } = useContext(UserContext);
@@ -43,7 +43,11 @@ function Header() {
         console.log(res);
     }
     return (
-        <div className="flex z-10  dark:bg-zinc-900 transition-all duration-200 sticky top-0 items-center justify-between px-6 py-5">
+        <motion.div
+        initial={{y: -100}}
+        animate={{y: 0}}
+        transition={{duration: 0.5}}
+         className="flex z-10  dark:bg-zinc-900 transition-all duration-200 sticky top-0 items-center justify-between px-6 py-5">
             <div>
                 <Logo />
             </div>
@@ -66,12 +70,16 @@ function Header() {
                     ) : (
                         <div>
                             <GoogleLogin
-                             useOneTap shape="circle" onSuccess={onSuceess} onError={onError} />
+                            theme={
+                                "filled_black"
+                            }
+                            
+                             useOneTap auto_select shape="circle" onSuccess={onSuceess} onError={onError} />
                         </div>
                     )
                 }
             </div>
-        </div>
+        </motion.div>
     )
 }
 

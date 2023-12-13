@@ -6,10 +6,10 @@ import { UserContext } from "../context/UserContext";
 
 function Dashboard() {
     const [passwords, setPasswords] = useState(null);
-    const {user} = useContext(UserContext);
+    const { user } = useContext(UserContext);
     return (
-        <div className="max-w-7xl overflow-y-auto  mx-auto px-5 py-5 rounded-lg bg-gray-100 dark:bg-zinc-900 mt-10  h-full ">
-            <div className="w-full">
+        <div className="max-w-7xl   mx-auto px-5 py-5 rounded-lg mb-5 bg-gray-100 dark:bg-zinc-900 mt-10">
+            <div className="w-full ">
                 <p className="text-4xl  text-gray-800 dark:text-white">
                     Welcome <span className="font-extrabold dark:text-white">{user?.name}</span>
                 </p>

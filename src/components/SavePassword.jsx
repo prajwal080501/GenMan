@@ -7,7 +7,6 @@ function SavePassword({ isOpen, setIsOpen, password , passwords, setPasswords}) 
     const { user, token } = useContext(UserContext);
     const [loading, setLoading] = useState(false);
     const [title, setTitle] = useState("");
-    console.log(token);
     async function savePassword(e) {
         // save password to databasee.
         e.preventDefault();

@@ -1,19 +1,20 @@
-import { SunIcon, ArrowRightCircleIcon } from '@heroicons/react/24/solid'
+import { ArrowRightCircleIcon } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom';
 import gifHome from "../assets/gifhome.gif"
 import { TypeAnimation } from 'react-type-animation';
 import { useContext } from 'react';
-import {motion} from "framer-motion"
+import { motion } from "framer-motion"
 import { UserContext } from '../context/UserContext';
 function Hero() {
     const { user } = useContext(UserContext)
     return (
-        <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-         className="w-full absolute top-0 transition-all duration-200 h-full dark:bg-zinc-950 flex flex-col lg:flex-row justify-around items-center py-5 px-5">
-            <div className="text-left  flex flex-col items-start space-y-9">
+        <div
+            className="w-full transition-all h-full duration-200 dark:bg-zinc-950 flex flex-col lg:flex-row justify-around items-center py-5 px-5">
+            <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                className=" text-left  flex flex-col items-start space-y-9">
                 <div className='flex flex-col space-y-4'>
                     <p className="underline dark:text-white decoration-rose-500  text-3xl lg:text-6xl">
                         <TypeAnimation
@@ -43,11 +44,11 @@ function Hero() {
                     </Link>
                 </div>
 
-            </div>
+            </motion.div>
             <div>
                 <img src={gifHome} className="object-contain h-96 w-96" alt="" />
             </div>
-        </motion.div>
+        </div>
     )
 }
 
