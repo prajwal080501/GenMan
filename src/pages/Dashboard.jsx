@@ -6,6 +6,7 @@ import { UserContext } from "../context/UserContext";
 
 function Dashboard() {
     const [passwords, setPasswords] = useState(null);
+
     const { user } = useContext(UserContext);
     return (
         <div className="max-w-7xl   mx-auto px-5 py-5 rounded-lg mb-5 bg-gray-100 dark:bg-zinc-900 mt-10">

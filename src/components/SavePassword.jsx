@@ -39,7 +39,7 @@ function SavePassword({ isOpen, setIsOpen, password , passwords, setPasswords}) 
         setIsOpen((prev) => !prev);
     }
     return (
-        <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
+        <Modal title="Save Password" isOpen={isOpen} setIsOpen={setIsOpen}>
             <form onSubmit={savePassword} className="flex flex-col space-y-5">
                 <div className="flex flex-col space-y-3">
                     <label className="label" htmlFor="title">Title</label>

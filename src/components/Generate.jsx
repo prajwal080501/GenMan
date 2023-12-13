@@ -8,6 +8,7 @@ function Generate({passwords, setPasswords}) {
     const [length, setLength] = useState(8);
     const [numbers, setNumbers] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+
     const [characters, setCharacters] = useState(false);
 
     const passwordRef = useRef(null);
