@@ -20,13 +20,14 @@ function Upload({ isOpen, setIsOpen, setPasswords }) {
     [setUploadedFiles]
   );
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop, 
-accept: {
-    '.json': 'application/json',
-    '.txt': 'text/plain',
-    '.csv': 'text/csv',
-}
-});
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept: {
+      ".json": "application/json",
+      ".txt": "text/plain",
+      ".csv": "text/csv",
+    },
+  });
 
   return (
     <Modal title="Import Passwords" isOpen={isOpen} setIsOpen={setIsOpen}>
