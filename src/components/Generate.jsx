@@ -37,7 +37,7 @@ function Generate({passwords, setPasswords}) {
         generatePassword();
     }, [length, numbers, characters, generatePassword])
     return (
-        <div className="w-fit mt-10  rounded-lg bg-white dark:bg-zinc-800">
+        <div className="w-[100%] lg:w-fit mt-10  rounded-lg bg-white dark:bg-zinc-800">
             <SavePassword passwords={passwords} setPasswords={setPasswords} password={password} isOpen={isOpen} setIsOpen={setIsOpen} />
             <div className="w-[80%] flex mx-auto mt-6">
                 <input ref={passwordRef} value={password} onChange={
@@ -52,7 +52,7 @@ function Generate({passwords, setPasswords}) {
                 </div>
 
             </div>
-            <div>
+            <div className=" mx-auto">
                 <Options setPassword={setPassword} numbers={numbers} setNumbers={setNumbers} characters={characters} setCharacters={setCharacters} length={length} setLength={setLength} generatePassword={generatePassword} password={password} />
             </div>
         </div>

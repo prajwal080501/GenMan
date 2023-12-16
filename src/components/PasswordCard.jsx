@@ -34,20 +34,27 @@ function PasswordCard({ password, passwords, setPasswords }) {
     }
 
     return (
-        <div className="w-full mt-5 bg-gray-100 dark:bg-zinc-900 cursor-pointer hover:scale-[1.01] duration-200 hover:opacity-75 p-3 rounded-lg flex items-center justify-between">
+        <div className="w-full mt-5 bg-gray-100 dark:bg-zinc-900  flex-col lg:flex-row cursor-pointer hover:scale-[1.01] duration-200 hover:opacity-75 p-3 rounded-lg flex items-center justify-between">
             <div className="flex space-x-4 items-center">
-                <LockClosedIcon className="h-5 w-5 bg-blue-500 text-white p-1 rounded-full" />
-                <div className="flex flex-col space-y-2 items-start">
+                <div className="flex flex-row lg:flex-col justify-between w-full space-y-2 items-start">
+                    <div className="flex space-x-5 items-center w-full"> 
+                    <LockClosedIcon className="h-5 w-5 bg-blue-500 text-white p-1 rounded-full" />
                     <p className="font-bold text-lg dark:text-white">{password.title}</p>
-                    <p className="text-gray-400">
+
+                    </div>
+                 <div>
+                 <p className="text-gray-400 text-sm lg:text-lg flex flex-col">
+                        <span>
                         Date created: 
-                        <span className="font-bold">
+                        </span>
+                        <span className="font-medium text-sm lg:text-lg">
                         {
                             new Date
                                 (password.createdAt).toLocaleDateString()
                         }
                         </span>
                     </p>
+                 </div>
                 </div>
             </div>
             <div className="flex items-center space-x-4">

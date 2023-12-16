@@ -9,13 +9,13 @@ function Dashboard() {
 
     const { user } = useContext(UserContext);
     return (
-        <div className="max-w-7xl   mx-auto px-5 py-5 rounded-lg mb-5 bg-gray-100 dark:bg-zinc-900 mt-10">
+        <div className="max-w-7xl   mx-auto px-2 py-5 rounded-lg mb-5 bg-gray-100 dark:bg-zinc-900 mt-10">
             <div className="w-full ">
                 <p className="text-4xl  text-gray-800 dark:text-white">
                     Welcome <span className="font-extrabold dark:text-white">{user?.name}</span>
                 </p>
             </div>
-            <div className=" flex flex-col items-center justify-center h-fit">
+            <div className=" flex w-full  flex-col items-center justify-center  mx-auto h-fit">
                 {/* <Filter /> */}
                 <Generate passwords={passwords} setPasswords={setPasswords} />
             </div>

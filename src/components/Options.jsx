@@ -4,9 +4,9 @@ function Options({ generatePassword, password, setPassword, characters, setChara
 
   
     return (
-        <div className="w-full p-5 flex items-center justify-center">
-            <div className="flex space-x-5 bg-white dark:bg-zinc-900 rounded-lg mt-8 p-3 items-center justify-center">
-                <div className="flex outline-none space-x-4 items-center justify-center">
+        <div className="w-full mx-auto p-5 flex items-center justify-center">
+            <div className="flex flex-row w-full space-x-5 bg-white dark:bg-zinc-900 rounded-lg mt-8 p-3 items-center justify-center">
+                <div className="flex flex-col lg:flex-row outline-none space-x-4 items-center justify-center">
                     <input value={length} onChange={(e) => {
                         e.preventDefault();
                         setLength(e.target.value);

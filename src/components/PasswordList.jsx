@@ -63,8 +63,8 @@ function PasswordList({ passwords, setPasswords }) {
         setPasswords={setPasswords}
       />
       <div className="w-full py-5 px-3 flex  justify-between items-start">
-        <p className="text-3xl font-extrabold text-black dark:text-white text-left">
-          Total saved passwords:{" "}
+        <p className=" text-lg lg:text-3xl w-full font-extrabold text-black dark:text-white text-left">
+          Total saved passwords:
           <span className="font-bold bg-blue-500/40 text-white px-2 rounded-lg">
             {passwords?.length}
           </span>
