@@ -16,7 +16,14 @@ const PasswordSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    isOld: {
+        type: Boolean,
+        required: true,
+        default: false
     }
+}, {
+    timestamps: true
 })
 
 const Password = mongoose.model("Password", PasswordSchema)
