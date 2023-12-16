@@ -11,7 +11,7 @@ function SavePassword({ isOpen, setIsOpen, password , passwords, setPasswords}) 
         // save password to databasee.
         e.preventDefault();
         setLoading(true);
-        const res = await fetch("http://localhost:8000/api/password", {
+        const res = await fetch("https://genman-6u7z.onrender.com/api/password", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

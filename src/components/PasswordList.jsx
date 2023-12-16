@@ -15,7 +15,7 @@ function PasswordList({ passwords, setPasswords }) {
   const [isOpen, setIsOpen] = useState(false);
   const getPasswordByUserId = useCallback(async () => {
     setLoading(true);
-    const res = await fetch(`http://localhost:8000/api/password/${user?._id}`, {
+    const res = await fetch(`https://genman-6u7z.onrender.com/api/password/${user?._id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -34,7 +34,7 @@ function PasswordList({ passwords, setPasswords }) {
 
   async function exportPasswords() {
     const res = await fetch(
-      `http://localhost:8000/api/password/export/${user?._id}`,
+      `https://genman-6u7z.onrender.com/api/password/export/${user?._id}`,
       {
         method: "GET",
         headers: {

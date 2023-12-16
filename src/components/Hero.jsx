@@ -9,7 +9,7 @@ function Hero() {
     const { user } = useContext(UserContext)
     return (
         <div
-            className="w-full transition-all h-full duration-200 dark:bg-zinc-950 flex flex-col lg:flex-row justify-around items-center py-5 px-5">
+            className="w-full transition-all h-full duration-200 dark:bg-zinc-950 bg-white flex flex-col lg:flex-row justify-around items-center py-5 px-5">
             <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}

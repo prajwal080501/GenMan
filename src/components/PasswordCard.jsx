@@ -16,7 +16,7 @@ function PasswordCard({ password, passwords, setPasswords }) {
     }
 
     async function deletePassword(id) {
-        const res = await fetch(`http://localhost:8000/api/password/${id}`, {
+        const res = await fetch(`https://genman-6u7z.onrender.com/api/password/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
