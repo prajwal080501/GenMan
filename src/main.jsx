@@ -2,12 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
-import {
-  Route,
-  RouterProvider,
-  createBrowserRouter,
-  createRoutesFromElements,
-} from "react-router-dom";
+
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { UserProvider } from "./context/UserContext.jsx";
 
