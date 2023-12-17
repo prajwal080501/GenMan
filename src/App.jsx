@@ -13,6 +13,9 @@ function App() {
   useEffect(() => {
     getUser();
   }, []);
+
+
+  console.log(import.meta.env.VITE_PRODUCTION_API_URL);
   return (
     <div className="dark:bg-zinc-950 bg-white px-2 w-full">
       <Router>

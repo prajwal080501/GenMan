@@ -11,7 +11,7 @@ function SavePassword({ isOpen, setIsOpen, password , passwords, setPasswords}) 
         // save password to databasee.
         e.preventDefault();
         setLoading(true);
-        const res = await fetch("https://genman-6u7z.onrender.com/api/password", {
+        const res = await fetch(`${import.meta.env.VITE_PRODUCTION_API_URL}/password`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -24,7 +24,7 @@ function SavePassword({ isOpen, setIsOpen, password , passwords, setPasswords}) 
             })
         })
         const data = await res.json();
-
+        console.log(data);
         toast.success(data.message);
 
        const newPassword = {

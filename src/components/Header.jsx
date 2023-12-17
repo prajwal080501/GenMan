@@ -17,7 +17,7 @@ function Header() {
     const data = jwtDecode(res.credential);
     const { name, email, picture } = data;
 
-    const response = await fetch("https://genman-6u7z.onrender.com/api/auth", {
+    const response = await fetch(`${import.meta.env.VITE_PRODUCTION_API_URL}/auth`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

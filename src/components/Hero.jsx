@@ -5,7 +5,7 @@ import { TypeAnimation } from "react-type-animation";
 import { useContext } from "react";
 import { motion } from "framer-motion";
 import { UserContext } from "../context/UserContext";
-function Hero() {
+function Hero(){ 
   const { user } = useContext(UserContext);
   return (
     <div className="w-full transition-all h-full duration-200 dark:bg-zinc-950 bg-white flex flex-col lg:flex-row justify-around items-center py-5 px-5">
@@ -13,7 +13,7 @@ function Hero() {
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
-        className=" text-left  flex flex-col items-start space-y-9"
+        className=" text-left w-fit  flex flex-col items-start space-y-9"
       >
         <div className="flex flex-col space-y-4">
           <p className="underline dark:text-white decoration-rose-500  text-5xl lg:text-6xl">
