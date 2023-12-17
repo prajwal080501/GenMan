@@ -60,7 +60,7 @@ function PasswordList({ passwords, setPasswords }) {
   }
 
   return (
-    <div className="w-full h-fit flex flex-col items-center justify-center mt-10 rounded-lg bg-white dark:bg-zinc-800 p-5">
+    <div className="w-[100%] h-fit flex flex-col items-center justify-center mt-10 rounded-lg bg-white dark:bg-zinc-800 p-5">
       <Upload
         isOpen={isOpen}
         setIsOpen={setIsOpen}

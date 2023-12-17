@@ -19,7 +19,7 @@ function Dashboard() {
                 {/* <Filter /> */}
                 <Generate passwords={passwords} setPasswords={setPasswords} />
             </div>
-            <div>
+            <div className="w-full">
                 <PasswordList passwords={passwords} setPasswords={setPasswords} />
             </div>
         </div>
