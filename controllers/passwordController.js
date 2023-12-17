@@ -32,12 +32,13 @@ function decrypt(encryptedText) {
 
 exports.addPassword = async (req, res) => {
   try {
-    const { user_id, title, password } = req.body;
+    const { user_id, title,email, password } = req.body;
 
     const hashedPassword = encrypt(password);
     const newPassword = new Password({
       user_id,
       title,
+      email,
       password: hashedPassword,
     });
 
