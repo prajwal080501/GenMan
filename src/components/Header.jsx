@@ -48,7 +48,7 @@ function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="flex z-10 w-screen  dark:bg-zinc-900 bg-white transition-all duration-200 sticky top-0 items-center justify-between px-6 py-5"
+      className="flex z-10 w-full dark:bg-zinc-900 bg-white transition-all duration-200 sticky top-0 items-center justify-between px-3 py-5"
     >
       <div>
         <Logo />
