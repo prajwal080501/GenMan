@@ -30,10 +30,10 @@ function SavePassword({ isOpen, setIsOpen, password , passwords, setPasswords}) 
        const newPassword = {
             user_id: user._id,
             title: title,
-            password: password
+            password: password,
+            createdAt: new Date().toLocaleString()
         }
         setPasswords((prev) => [...prev, newPassword]);
-
 
         setLoading(false);
         setIsOpen((prev) => !prev);

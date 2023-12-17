@@ -14,6 +14,10 @@ function PasswordList({ passwords, setPasswords }) {
   const [loading, setLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const getPasswordByUserId = useCallback(async () => {
+    if (!user) {
+      // User object is not available yet, skip the API call
+      return;
+    }
     setLoading(true);
     const res = await fetch(`${import.meta.env.VITE_PRODUCTION_API_URL}/password/${user?._id}`, {
       method: "GET",
@@ -30,7 +34,7 @@ function PasswordList({ passwords, setPasswords }) {
 
   useEffect(() => {
     getPasswordByUserId();
-  }, [user]);
+  }, [user, setPasswords]);
 
   async function exportPasswords() {
     const res = await fetch(

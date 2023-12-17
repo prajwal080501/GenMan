@@ -21,12 +21,7 @@ function Upload({ isOpen, setIsOpen, setPasswords }) {
   );
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    onDrop,
-    accept: {
-      ".json": "application/json",
-      ".txt": "text/plain",
-      ".csv": "text/csv",
-    },
+    onDrop
   });
 
   return (
