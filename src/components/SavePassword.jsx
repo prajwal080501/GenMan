@@ -7,6 +7,7 @@ function SavePassword({ isOpen, setIsOpen, password , passwords, setPasswords}) 
     const { user, token } = useContext(UserContext);
     const [loading, setLoading] = useState(false);
     const [title, setTitle] = useState("");
+    const [email, setEmail] = useState("");
     async function savePassword(e) {
         // save password to databasee.
         e.preventDefault();
@@ -20,6 +21,7 @@ function SavePassword({ isOpen, setIsOpen, password , passwords, setPasswords}) 
             body: JSON.stringify({
                 user_id: user._id,
                 title: title,
+                email: email,
                 password: password
             })
         })
@@ -30,6 +32,7 @@ function SavePassword({ isOpen, setIsOpen, password , passwords, setPasswords}) 
        const newPassword = {
             user_id: user._id,
             title: title,
+            email: email,
             password: password,
             createdAt: new Date().toLocaleString()
         }
@@ -50,6 +53,16 @@ function SavePassword({ isOpen, setIsOpen, password , passwords, setPasswords}) 
                         }
 
                     } name="title" type="text" placeholder="Title" className="input" />
+                </div>
+                <div className="flex flex-col space-y-3">
+                    <label className="label" htmlFor="email">Email</label>
+                    <input value={email} onChange={
+                        (e) => {
+                            e.preventDefault();
+                            setEmail(e.target.value);
+                        }
+
+                    } name="email" type="email" placeholder="Email" className="input" />
                 </div>
                 <div className="flex flex-col space-y-3">
                     <label className="label" htmlFor="password">Password</label>
