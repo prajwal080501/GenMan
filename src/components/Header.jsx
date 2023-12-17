@@ -29,7 +29,6 @@ function Header() {
       }),
     });
 
-
     console.log(response);
     const jsonData = await response.json();
 
@@ -49,7 +48,7 @@ function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="flex z-10  dark:bg-zinc-900 bg-white transition-all duration-200 sticky top-0 items-center justify-between px-6 py-5"
+      className="flex z-10 w-screen  dark:bg-zinc-900 bg-white transition-all duration-200 sticky top-0 items-center justify-between px-6 py-5"
     >
       <div>
         <Logo />
@@ -62,7 +61,7 @@ function Header() {
           <>
             <button
               onClick={logout}
-              className="bg-red-600 hover:bg-red-700 px-3 py-2 rounded-lg text-white font-medium text-lg hover:scale-105 active:scale-95 duration-200 ease-linear"
+              className="bg-red-600 hover:bg-red-700 px-3 py-2 rounded-lg text-white font-medium text-base lg:text-lg hover:scale-105 active:scale-95 duration-200 ease-linear"
             >
               {loading ? (
                 <span className="">

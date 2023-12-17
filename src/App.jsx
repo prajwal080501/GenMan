@@ -14,7 +14,7 @@ function App() {
     getUser();
   }, []);
   return (
-    <div className="dark:bg-zinc-950 bg-white">
+    <div className="dark:bg-zinc-950 bg-white px-2">
       <Router>
         <Toaster />
         <Header />

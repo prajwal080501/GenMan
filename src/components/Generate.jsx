@@ -39,7 +39,7 @@ function Generate({passwords, setPasswords}) {
     return (
         <div className="w-[100%] lg:w-fit mt-10  rounded-lg bg-white dark:bg-zinc-800">
             <SavePassword passwords={passwords} setPasswords={setPasswords} password={password} isOpen={isOpen} setIsOpen={setIsOpen} />
-            <div className="w-[80%] flex mx-auto mt-6">
+            <div className="w-[95%] flex mx-auto mt-6">
                 <input ref={passwordRef} value={password} onChange={
                     (e) => {
                         e.preventDefault();
@@ -47,8 +47,8 @@ function Generate({passwords, setPasswords}) {
                     }
                 } readOnly className="input" type="text" placeholder="Password" />
                 <div className="flex space-x-4">
-                    <button onClick={copyPassword} className="btn-primary dark:bg-blue-600">Copy</button>
-                    <button onClick={() => setIsOpen(true)} className="bg-gray-800 dark:bg-fuchsia-600 text-white px-3 py-1 font-medium text-lg rounded-md hover:scale-105 duration-200">Save</button>
+                    <button onClick={copyPassword} className="btn-primary text-base lg:text-lg dark:bg-blue-600">Copy</button>
+                    <button onClick={() => setIsOpen(true)} className="bg-gray-800 text-base lg:text-lg dark:bg-fuchsia-600 text-white px-3 py-1 font-medium rounded-md hover:scale-105 duration-200">Save</button>
                 </div>
 
             </div>

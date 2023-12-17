@@ -80,7 +80,7 @@ function PasswordList({ passwords, setPasswords }) {
             <ArrowDownOnSquareIcon className="h-8 w-8 text-black dark:text-white hover:text-blue-500 hover:scale-110 duration-200 cursor-pointer" />
           </button>
           <button
-            className="bg-white text-black p-2 rounded-lg hover:scale-105 duration-200 ease-linear"
+            className=" text-sm  lg:text-xl font-medium py-2 px-4 rounded-lg bg-green-600 text-white hover:scale-105 duration-200 ease-linear"
             onClick={exportPasswords}
             title="Export passwords"
           >
