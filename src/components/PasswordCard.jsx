@@ -46,7 +46,7 @@ function PasswordCard({ password, passwords, setPasswords }) {
     <PasswordDetails password={password} isOpen={isOpen} setIsOpen={setIsOpen} />
      <div onClick={() => {
       setIsOpen((prev) => !prev);
-     }} className="w-[100%] mt-5 px-5 bg-gray-100 dark:bg-zinc-900 flex-row cursor-pointer hover:scale-[1.01] duration-200 hover:opacity-75 p-3 rounded-lg flex items-center justify-between">
+     }} className="w-[100%] mt-5 bg-gray-100 dark:bg-zinc-900 px-10 flex-row cursor-pointer hover:scale-[1.01] duration-200 hover:opacity-75 p-3 rounded-lg flex items-center justify-between">
       <div className="flex space-x-4 items-center">
         <div className="flex flex-row space-x-5 justify-between w-full space-y-2 items-center">
           <div className="bg-blue-500 p-2 rounded-full">

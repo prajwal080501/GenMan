@@ -20,11 +20,11 @@ const PasswordDetails = ({ isOpen, setIsOpen, password }) => {
       <div>
         <div className="w-full flex items-end justify-end">
           <div className="w-fit flex space-x-5">
-            <button className="bg-zinc-700 items-center flex space-x-2 p-2 text-blue-500 font-medium rounded-lg">
+            <button className="dark:bg-zinc-700 bg-gray-200 items-center flex space-x-2 p-2 text-blue-500 font-medium rounded-lg">
               <PencilIcon className="h-4 w-4" />
               <span>Edit</span>
             </button>
-            <button className="bg-zinc-700 text-red-400 p-2 flex items-center space-x-2  font-medium rounded-lg">
+            <button className="dark:bg-zinc-700 bg-gray-200 text-red-400 p-2 flex items-center space-x-2  font-medium rounded-lg">
               <TrashIcon className="h-4 w-4" />
               <span> Delete</span>
             </button>
@@ -32,14 +32,14 @@ const PasswordDetails = ({ isOpen, setIsOpen, password }) => {
         </div>
         <div className="flex space-x-2 mt-8 lg:mt-2 items-center">
           <LockClosedIcon className="h-8 w-8 text-blue-500" />
-          <h2 className="text-white font-extrabold text-2xl lg:text-4xl">
+          <h2 className="dark:text-white text-gray-800 font-extrabold text-2xl lg:text-4xl">
             {password.title}
           </h2>
         </div>
         <hr className="my-5 border border-gray-500/30" />
         <div className="flex flex-col space-y-5">
           <div className="flex flex-col items-start space-y-2">
-            <label className="text-white font-medium" htmlFor="email">
+            <label className="dark:text-white text-black font-medium" htmlFor="email">
               Email
             </label>
             <input
@@ -51,7 +51,7 @@ const PasswordDetails = ({ isOpen, setIsOpen, password }) => {
             />
           </div>
           <div className="flex flex-col items-start space-y-2">
-            <label className="text-white font-medium" htmlFor="email">
+            <label className="dark:text-white text-black font-medium" htmlFor="email">
               Password
             </label>
             <div className="flex justify-between items-center input">
@@ -65,7 +65,7 @@ const PasswordDetails = ({ isOpen, setIsOpen, password }) => {
               />
               <div>
                 <button onClick={copyPassword}>
-                  <ClipboardDocumentListIcon className="h-6 w-6 text-white/50 hover:text-blue-500 hover:scale-105 active:scale-95" />
+                  <ClipboardDocumentListIcon className="h-6 w-6 dark:text-white/50 text-black hover:text-blue-500 hover:scale-105 active:scale-95" />
                 </button>
               </div>
             </div>
