@@ -30,7 +30,7 @@ const PasswordDetails = ({ isOpen, setIsOpen, password }) => {
             </button>
           </div>
         </div>
-        <div className="flex space-x-2 b items-center">
+        <div className="flex space-x-2 mt-8 lg:mt-2 items-center">
           <LockClosedIcon className="h-8 w-8 text-blue-500" />
           <h2 className="text-white font-extrabold text-2xl lg:text-4xl">
             {password.title}

@@ -14,7 +14,7 @@ const Modal = ({ children, isOpen, setIsOpen, title }) => {
       <div className="fixed inset-0 bg-black bg-opacity-80 backdrop-filter backdrop-blur-sm duration-200  transition-all flex justify-center items-center">
         <div className="bg-white dark:bg-zinc-900 p-5 drop-shadow-2xl rounded-lg w-[80%] lg:w-[40%] h[90%] lg:h-fit">
           <div className="flex justify-between items-center">
-            <h1 className="text-3xl py-4 font-extrabold dark:text-white">
+            <h1 className=" text-xl lg:text-3xl py-4 font-extrabold dark:text-white">
               {title}
             </h1>
             <button
