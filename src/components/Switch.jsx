@@ -3,7 +3,7 @@ import useDarkMode from "../hooks/useDarkMode";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 function Switch() {
   const [colorTheme, setColorTheme] = useDarkMode();
-  const [darkMode, setDarkMode] = useState(colorTheme === 'dark');
+  const [darkMode, setDarkMode] = useState(colorTheme);
 
   const toggleDarkMode = checked => {
     // Assuming you have a function setTheme to set the theme
