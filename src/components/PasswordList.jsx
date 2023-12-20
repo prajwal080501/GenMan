@@ -1,4 +1,4 @@
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/UserContext";
 import NoPasswords from "./NoPasswords";
 import PasswordCard from "./PasswordCard";
@@ -10,7 +10,6 @@ function PasswordList({ passwords, setPasswords, getPasswordByUserId }) {
   const { user, token } = useContext(UserContext);
   const [loading, setLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  
 
   useEffect(() => {
     getPasswordByUserId();
@@ -54,7 +53,7 @@ function PasswordList({ passwords, setPasswords, getPasswordByUserId }) {
           </span>
         </p>
         <div className="flex items-center space-x-5">
-          <button
+          {/* <button
             onClick={() => {
               setIsOpen((prev) => !prev);
             }}
@@ -62,9 +61,10 @@ function PasswordList({ passwords, setPasswords, getPasswordByUserId }) {
             className="text-3xl font-extrabold text-black dark:text-white p-2"
           >
             <ArrowDownOnSquareIcon className="h-8 w-8 text-black dark:text-white hover:text-blue-500 hover:scale-110 duration-200 cursor-pointer" />
-          </button>
+          </button> */}
           <button
-            className="text-xs lg:text-sm font-medium py-2 px-2 rounded-lg bg-green-600 text-white hover:scale-105 duration-200 ease-linear"
+            disabled={passwords?.length === 0}
+            className="text-xs lg:text-sm font-medium disabled:opacity-60 disabled:cursor-not-allowed py-2 px-2 rounded-lg bg-green-600 text-white hover:scale-105 duration-200 ease-linear"
             onClick={exportPasswords}
             title="Export passwords"
           >
@@ -82,7 +82,7 @@ function PasswordList({ passwords, setPasswords, getPasswordByUserId }) {
         <div className="w-full flex flex-wrap justify-center items-center">
           {passwords?.map((password) => (
             <PasswordCard
-            getPasswordByUserId={getPasswordByUserId}
+              getPasswordByUserId={getPasswordByUserId}
               key={password._id}
               password={password}
               setPasswords={setPasswords}
