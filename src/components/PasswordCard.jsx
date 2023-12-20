@@ -1,6 +1,4 @@
 import {
-  TrashIcon,
-  PencilIcon,
   EyeIcon,
   LockClosedIcon,
   ClipboardIcon,
@@ -10,8 +8,12 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { UserContext } from "../context/UserContext";
 import toast from "react-hot-toast";
 import PasswordDetails from "./PasswordDetails";
-function PasswordCard({ password, passwords, setPasswords, getPasswordByUserId }) {
-  const [showPassword, setShowPassword] = useState(false);
+function PasswordCard({
+  password,
+  passwords,
+  setPasswords,
+  getPasswordByUserId,
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const { token } = useContext(UserContext);
   const ref = useRef(null);
@@ -20,12 +22,10 @@ function PasswordCard({ password, passwords, setPasswords, getPasswordByUserId }
     toast.success("Password copied to clipboard");
   };
 
-  
-
   return (
     <>
       <PasswordDetails
-      getPasswordByUserId={getPasswordByUserId}
+        getPasswordByUserId={getPasswordByUserId}
         password={password}
         isOpen={isOpen}
         setIsOpen={setIsOpen}
@@ -45,7 +45,9 @@ function PasswordCard({ password, passwords, setPasswords, getPasswordByUserId }
               <p className="font-bold text-lg dark:text-white">
                 {password.title}
               </p>
-              <p className="text-xs lg:text-base w-fit text-gray-400">{password?.email}</p>
+              <p className="text-xs lg:text-base w-fit text-gray-400">
+                {password?.email}
+              </p>
             </div>
           </div>
         </div>

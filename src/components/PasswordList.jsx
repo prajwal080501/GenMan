@@ -18,7 +18,7 @@ function PasswordList({ passwords, setPasswords, getPasswordByUserId }) {
 
   async function exportPasswords() {
     const res = await fetch(
-      `${import.meta.env.VITE_PRODUCTION_API_URL}/export/${user?._id}`,
+      `${import.meta.env.VITE_PRODUCTION_API_URL}/password/export/${user?._id}`,
       {
         method: "GET",
         headers: {
