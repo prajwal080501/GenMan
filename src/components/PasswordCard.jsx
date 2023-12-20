@@ -10,7 +10,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { UserContext } from "../context/UserContext";
 import toast from "react-hot-toast";
 import PasswordDetails from "./PasswordDetails";
-function PasswordCard({ password, passwords, setPasswords }) {
+function PasswordCard({ password, passwords, setPasswords, getPasswordByUserId }) {
   const [showPassword, setShowPassword] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const { token } = useContext(UserContext);
@@ -20,30 +20,12 @@ function PasswordCard({ password, passwords, setPasswords }) {
     toast.success("Password copied to clipboard");
   };
 
-  async function deletePassword(id) {
-    const res = await fetch(
-      `${import.meta.env.VITE_PRODUCTION_API_URL}/password/${id}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          "auth-token": token,
-        },
-      }
-    );
-    const data = await res.json();
-    console.log(data);
-
-    setPasswords((prev) => prev.filter((password) => password._id !== id));
-
-    toast.success("Password deleted successfully");
-
-    setLoading(false);
-  }
+  
 
   return (
     <>
       <PasswordDetails
+      getPasswordByUserId={getPasswordByUserId}
         password={password}
         isOpen={isOpen}
         setIsOpen={setIsOpen}
@@ -52,10 +34,10 @@ function PasswordCard({ password, passwords, setPasswords }) {
         onClick={() => {
           setIsOpen((prev) => !prev);
         }}
-        className="w-[100%] mt-5 bg-gray-100 dark:bg-zinc-900 px-10 flex-row cursor-pointer hover:scale-[1.01] duration-200 hover:opacity-75 p-3 rounded-lg flex items-center justify-between"
+        className="w-[100%] mt-5 bg-gray-100 dark:bg-zinc-900 px-5 flex-row cursor-pointer hover:scale-[1.01] duration-200 hover:opacity-75 p-3 rounded-lg flex items-center justify-between"
       >
         <div className="flex space-x-4 items-center">
-          <div className="flex flex-row space-x-5 justify-between w-full space-y-2 items-center">
+          <div className="flex flex-row space-x-5 justify-between w-full items-center">
             <div className="bg-blue-500 p-2 rounded-full">
               <LockClosedIcon className="h-8 w-8  text-white" />
             </div>
@@ -63,16 +45,8 @@ function PasswordCard({ password, passwords, setPasswords }) {
               <p className="font-bold text-lg dark:text-white">
                 {password.title}
               </p>
-              <p className="w-fit text-gray-400">{password?.email}</p>
+              <p className="text-xs lg:text-base w-fit text-gray-400">{password?.email}</p>
             </div>
-            {/* <div>
-            <p className="text-gray-400 text-sm lg:text-lg flex flex-col">
-              <span>Date created:</span>
-              <span className="font-medium text-sm lg:text-lg">
-                {new Date(password.createdAt).toLocaleDateString()}
-              </span>
-            </p>
-          </div> */}
           </div>
         </div>
         <div className="flex items-center space-x-4">

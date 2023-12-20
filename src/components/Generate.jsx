@@ -3,7 +3,7 @@ import Options from "./Options";
 import SavePassword from "./SavePassword";
 import toast from "react-hot-toast";
 
-function Generate({passwords, setPasswords}) {
+function Generate({passwords, setPasswords, getPasswordByUserId}) {
     const [password, setPassword] = useState("");
     const [length, setLength] = useState(8);
     const [numbers, setNumbers] = useState(false);
@@ -38,7 +38,7 @@ function Generate({passwords, setPasswords}) {
     }, [length, numbers, characters, generatePassword])
     return (
         <div className="w-[100%] lg:w-fit mt-10  rounded-lg bg-white dark:bg-zinc-800">
-            <SavePassword passwords={passwords} setPasswords={setPasswords} password={password} isOpen={isOpen} setIsOpen={setIsOpen} />
+            <SavePassword getPasswordByUserId={getPasswordByUserId} passwords={passwords} setPasswords={setPasswords} password={password} isOpen={isOpen} setIsOpen={setIsOpen} />
             <div className="w-[95%] flex mx-auto mt-6">
                 <input ref={passwordRef} value={password} onChange={
                     (e) => {

@@ -7,10 +7,12 @@ import {
 } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
 import Modal from "./Modal";
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import toast from "react-hot-toast";
+import { UserContext } from "../context/UserContext";
 
-const PasswordDetails = ({ isOpen, setIsOpen, password }) => {
+const PasswordDetails = ({ isOpen, setIsOpen, password, getPasswordByUserId }) => {
+  const { token } = useContext(UserContext);
   const ref = useRef();
   const [edit, setEdit] = useState(false);
   const [email, setEmail] = useState(password.email);
@@ -19,7 +21,24 @@ const PasswordDetails = ({ isOpen, setIsOpen, password }) => {
     window.navigator.clipboard.writeText(ref.current.value);
     toast.success("Password copied to clipboard");
   }
+  async function deletePassword(id) {
+    const res = await fetch(
+      `${import.meta.env.VITE_PRODUCTION_API_URL}/password/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": token,
+        },
+      }
+    );
+    const data = await res.json();
+    getPasswordByUserId();
 
+    toast.success(data.message);
+
+    setIsOpen((prev) => !prev);
+  }
   function updatePassword() {
     // update password
     const updatedData = {
@@ -39,12 +58,17 @@ const PasswordDetails = ({ isOpen, setIsOpen, password }) => {
               onClick={() => {
                 setEdit((prev) => !prev);
               }}
-              className="dark:bg-zinc-700 bg-gray-200 items-center flex space-x-2 p-2 text-blue-500 font-medium rounded-lg"
+              className="dark:bg-zinc-950/70 px-3 bg-gray-200 items-center flex space-x-2 p-2 text-blue-500 font-medium rounded-lg"
             >
               <PencilIcon className="h-4 w-4" />
               <span>Edit</span>
             </button>
-            <button className="dark:bg-zinc-700 bg-gray-200 text-red-400 p-2 flex items-center space-x-2  font-medium rounded-lg">
+            <button
+              onClick={() => {
+                deletePassword(password._id);
+              }}
+              className="dark:bg-zinc-950/70 bg-gray-200 text-red-400 p-2 flex items-center space-x-2  font-medium rounded-lg"
+            >
               <TrashIcon className="h-4 w-4" />
               <span> Delete</span>
             </button>

@@ -3,34 +3,14 @@ import { UserContext } from "../context/UserContext";
 import NoPasswords from "./NoPasswords";
 import PasswordCard from "./PasswordCard";
 import ClipLoader from "react-spinners/ClipLoader";
-import {
-  ArrowDownOnSquareIcon,
-  ArrowUpOnSquareIcon,
-} from "@heroicons/react/24/solid";
+import { ArrowDownOnSquareIcon } from "@heroicons/react/24/solid";
 import Upload from "./Upload";
 import toast from "react-hot-toast";
-function PasswordList({ passwords, setPasswords }) {
+function PasswordList({ passwords, setPasswords, getPasswordByUserId }) {
   const { user, token } = useContext(UserContext);
   const [loading, setLoading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const getPasswordByUserId = useCallback(async () => {
-    if (!user) {
-      // User object is not available yet, skip the API call
-      return;
-    }
-    setLoading(true);
-    const res = await fetch(`${import.meta.env.VITE_PRODUCTION_API_URL}/password/${user?._id}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "auth-token": token,
-      },
-    });
-    const data = await res.json();
-    setPasswords(data.passwords);
-    console.log(passwords);
-    setLoading(false);
-  }, [user, token, setPasswords]);
+  
 
   useEffect(() => {
     getPasswordByUserId();
@@ -102,6 +82,7 @@ function PasswordList({ passwords, setPasswords }) {
         <div className="w-full flex flex-wrap justify-center items-center">
           {passwords?.map((password) => (
             <PasswordCard
+            getPasswordByUserId={getPasswordByUserId}
               key={password._id}
               password={password}
               setPasswords={setPasswords}
