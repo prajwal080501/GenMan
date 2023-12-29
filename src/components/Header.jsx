@@ -83,6 +83,7 @@ function Header() {
             <GoogleLogin
               theme={"filled_black"}
               useOneTap
+              type="icon"
               auto_select
               shape="circle"
               onSuccess={onSuceess}

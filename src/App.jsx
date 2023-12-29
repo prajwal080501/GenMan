@@ -16,7 +16,9 @@ function App() {
   return (
     <div className="dark:bg-zinc-950 bg-white px-2 w-full">
       <Router>
-        <Toaster />
+        <Toaster
+         
+         />
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
